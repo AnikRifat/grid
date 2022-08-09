@@ -32,8 +32,8 @@
                             <td>{{ $item->detail }}</td>
                             <td><img src="images/{{ $item->image }}" height="100" alt="noimage"></td>
                             <td>
-                                <form action="{{ route('destroy', $item->id) }}" method="post">
-                                    <a href="{{ route('edit', $item->id) }}" class="btn btn-app bg-info">
+                                <form action="{{ url('admin/blogs/destroy', $item->id) }}" method="post">
+                                    <a href="{{ url('admin/blogs/edit', $item->id) }}" class="btn btn-app bg-info">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     @csrf

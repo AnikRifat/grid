@@ -3,7 +3,7 @@
     <a href="index3.html" class="brand-link">
         <img src="{{ asset('/') }}assets/admin/img/AdminLTELogo.png" alt="AdminLTE Logo"
             class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Freshmal</span>
+        <span class="brand-text font-weight-light">{{ config('app.name', 'Laravel') }} </span>
     </a>
 
     <!-- Sidebar -->
@@ -11,8 +11,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{ asset('/') }}assets/admin/img/user2-160x160.jpg" class="img-circle elevation-2"
-                    alt="User Image">
+                <img src="{{ $content->logo }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
                 <a href="#" class="d-block"></a>
@@ -50,29 +49,58 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ url('create') }}" class="nav-link">
+                            <a href="{{ url('admin/blogs/create') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Blog</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ url('view_blogs') }}" class="nav-link">
+                            <a href="{{ url('admin/blogs/view_blogs') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>View Blogs</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-tree"></i>
+                        <p>
+                            Website Settings
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ url('admin/settings/color') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Color</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('admin/settings/content') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Content</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
                 <li class="nav-item">
-                    <a href=" dumb/Users_controller/logout" class="nav-link">
+
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();"
+                        class="nav-link">
                         <i class="nav-icon fas fa-sign-out-alt"></i>
                         <p>
                             log Out
                             <i class="fas fa-angle-right right"></i>
                         </p>
                     </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                    </form>
                 </li>
             </ul>
         </nav>

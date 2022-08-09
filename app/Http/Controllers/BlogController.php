@@ -7,16 +7,7 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function home()
-    {
-        $blogs = Blog::latest()->paginate(5);
-        return view('front.home', compact('blogs'));
-    }
+
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +16,7 @@ class BlogController extends Controller
     public function index()
     {
         $blogs = Blog::latest()->paginate(5);
-        return view('admin.pages.blogs.index', 'front.home', compact('blogs'));
+        return view('admin.pages.blogs.index', compact('blogs'));
     }
 
     /**

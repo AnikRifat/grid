@@ -17,7 +17,7 @@
         @endif
         <!-- /.card-header -->
         <!-- form start -->
-        <form action="{{ route('update', $blog->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('admin/blogs/update', $blog->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             @method('put')
