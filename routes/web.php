@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PublicController;
@@ -27,16 +28,26 @@ Route::get('/view_blogs/{blog}', 'PublicController@viewBlogs')->name('Blog Detai
 
 //blogs-route
 Route::prefix('admin/blogs')->middleware('auth')->group(function () {
-    Route::get('/view_blogs', 'BlogController@index')->name('index');
-    Route::get('/create', 'BlogController@create')->name('create');
-    Route::post('/store', 'BlogController@store')->name('store');
-    Route::get('/edit/{blog}', 'BlogController@edit')->name('edit');
-    Route::put('/update/{blog}', 'BlogController@update')->name('update');
-    Route::delete('/{blog}', 'BlogController@destroy')->name('destroy');
+    Route::get('/view_blogs', 'BlogController@index')->name('blogindex');
+    Route::get('/create', 'BlogController@create')->name('blogcreate');
+    Route::post('/store', 'BlogController@store')->name('blogstore');
+    Route::get('/edit/{blog}', 'BlogController@edit')->name('blogedit');
+    Route::put('/update/{blog}', 'BlogController@update')->name('blogupdate');
+    Route::delete('/destroy/{blog}', 'BlogController@destroy')->name('blogdestroy');
+});
+//service-route
+Route::prefix('admin/services')->middleware('auth')->group(function () {
+    Route::get('/view_services', 'ServicesController@index')->name('serviceindex');
+    Route::get('/create', 'ServicesController@create')->name('servicecreate');
+    Route::post('/store', 'ServicesController@store')->name('servicestore');
+    Route::get('/edit/{service}', 'ServicesController@edit')->name('serviceedit');
+    Route::put('/update/{service}', 'ServicesController@update')->name('serviceupdate');
+    Route::delete('/destroy/{service}', 'ServicesController@destroy')->name('servicedestroy');
 });
 //content-route
 Route::prefix('admin/settings')->middleware('auth')->group(function () {
-    Route::get('/content', 'WebsiteController@index')->name('index');
+    Route::get('/content', 'WebsiteController@index')->name('contentIndex');
+    Route::put('/update/{content}', 'WebsiteController@update')->name('update');
 });
 
 Auth::routes();

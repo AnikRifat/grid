@@ -17,8 +17,10 @@ return new class extends Migration
             $table->id();
             $table->text('slogan');
             $table->text('about');
+            $table->text('massage');
             $table->string('logo');
             $table->string('phone');
+            $table->string('email');
             $table->string('address');
             $table->string('facebook');
             $table->string('twitter');

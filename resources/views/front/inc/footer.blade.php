@@ -33,10 +33,10 @@
                 <div class="col-xl-3 col-lg-3 col-md-6 col-12">
                     <div class="about-footer-wid">
                         <a href="index.html">
-                            <img src="{{ $content->logo }}" alt="">
+                            <img src="{{ asset('/') }}images/{{ $content->logo }}" alt="">
                         </a>
-                        <p>SaasNext is Creative Saas, App & Agency Multipurpose Theme.</p>
-                        <span>Copyright &copy; 2020 SaasNext <br>All rights reserved.</span>
+                        <p>{{ $content->massage }}</p>
+
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-6 col-12 pl-60">
@@ -74,12 +74,16 @@
                         <div class="widegts-title">
                             <h4>Contact us</h4>
                         </div>
-                        <span>Mercure Sydney Liverpool, Prestons, New South Wales, Australia</span>
+                        <span>{{ $content->address }}</span>
+                        <br>
+                        <span>{{ $content->phone }}</span>
+                        <br>
+                        <span>{{ $content->email }}</span>
                         <div class="social-links mt-10 two">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                            <a href="{{ $content->facebook }}"><i class="fab fa-facebook-f"></i></a>
+                            <a href="{{ $content->twitter }}"><i class="fab fa-twitter"></i></a>
+                            <a href="{{ $content->linkedin }}"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="{{ $content->youtube }}"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
                 </div>

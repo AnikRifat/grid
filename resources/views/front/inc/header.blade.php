@@ -53,9 +53,9 @@
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-xl-2 col-lg-2 col-md-4">
-                    <a class="navbar-brand logo" href="index.html">
-                        <img src="{{ $content->logo }}" alt="SaasNext">
-                        <img src="{{ $content->logo }}" class="d-none" alt="SaasNext">
+                    <a class="navbar-brand logo" href="{{ url('/') }}">
+                        <img src="{{ asset('/') }}images/{{ $content->logo }}" alt="SaasNext">
+                        <img src="{{ asset('/') }}images/{{ $content->logo }}" class="d-none" alt="SaasNext">
                     </a>
                 </div>
                 <div class="col-xl-6 col-lg-6 text-left pr-0 d-none d-lg-block">
@@ -65,14 +65,14 @@
                             <li><a href="{{ url('/') }}">Home</a></li>
                             <li><a href="{{ url('/blogs') }}">Blogs</a></li>
                             <li><a href="#service">Services</a></li>
-                            <li><a href="#price">About us</a></li>
+                            <li><a href="#feature">About us</a></li>
                             <li><a href="#review">contact us</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-xl-4 col-lg-4 d-none d-lg-block text-right">
                     <span class="phone-number mr-4">Call Us: {{ $content->phone }}</span>
-                    <a href="#" class="theme-btn sign-btn">Sing in</a>
+                    {{-- <a href="#" class="theme-btn sign-btn">Sing in</a> --}}
                 </div>
                 <div class="col-md-12 d-lg-none">
                     <div class="responsive-menu"></div>

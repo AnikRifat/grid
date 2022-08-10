@@ -1,5 +1,12 @@
 @extends('admin.master.app')
 @section('content')
+    @if ($massage = Session::get('success'))
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-check"></i> Success!</h5>
+            {{ $massage }}
+        </div>
+    @endif
     <div class="main-body">
         <div class="conatiner">
             <div class="row">
@@ -16,56 +23,75 @@
                         </div>
                         <div class="card-body" style="display: block;">
 
-                            <div class="form-group">
-                                <label for="inputSlogan">Slogan</label>
-                                <textarea id="inputSlogan" name="inputSlogan" class="form-control" rows="2" value="">
+                            <form action="{{ url('admin/settings/update', $content->id) }}" method="POST"
+                                enctype="multipart/form-data">
+                                @csrf
+
+                                @method('put')
+                                <div class="form-group">
+                                    <label for="slogan">Slogan</label>
+                                    <textarea id="slogan" name="slogan" class="form-control" rows="2" value="">
                                 {{ $content->slogan }}
                                 </textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="inputAbout">About</label>
-                                <textarea id="inputAbout" name="inputAbout" class="form-control" rows="2">
+                                </div>
+                                <div class="form-group">
+                                    <label for="about">About</label>
+                                    <textarea id="about" name="about" class="form-control" rows="2">
                                     {{ $content->about }}
                                 </textarea>
 
-                            </div>
-                            <div class="form-group">
-                                <label for="inputPhone">Phone</label>
-                                <input id="inputPhone" name="inputPhone" class="form-control" value="{{ $content->phone }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="inputAddress">Address</label>
-                                <textarea id="inputAddress" name="inputAddress" class="form-control" rows="2">{{ $content->address }}</textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Logo</label>
-                                <img src="{{ $content->logo }}" height="100" width="100" alt="">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" name="image" id="image">
-                                    <label class="custom-file-label" for="image">Choose file</label>
                                 </div>
+                                <div class="form-group">
+                                    <label for="massage">Massage</label>
+                                    <textarea id="massage" name="massage" class="form-control" rows="2">
+                                    {{ $content->massage }}
+                                </textarea>
 
-                            </div>
-                            <div class="form-group">
-                                <label for="inputFacebook">Facebook</label>
-                                <input id="inputFacebook" name="inputFacebook" class="form-control"
-                                    value="{{ $content->facebook }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="inputTwitter">Twitter</label>
-                                <input id="inputTwitter" name="inputTwitter" class="form-control"
-                                    value="{{ $content->twitter }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="inputLinkedin">Linkedin</label>
-                                <input id="inputLinkedin" name="inputLinkedin" class="form-control"
-                                    value="{{ $content->linkedin }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="inputYoutube">Youtube</label>
-                                <input id="inputYoutube" name="inputYoutube" class="form-control"
-                                    value="{{ $content->youtube }}">
-                            </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input id="phone" name="phone" class="form-control" value="{{ $content->phone }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input id="email" type="email" name="email" class="form-control" value="{{ $content->email }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Address</label>
+                                    <textarea id="address" name="address" class="form-control" rows="2">{{ $content->address }}</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Logo</label>
+                                    <img src="{{ asset('/') }}images/{{ $content->logo }}" height="100" width="100"
+                                        alt="">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" name="logo" id="logo">
+                                        <label class="custom-file-label" for="logo">Choose file</label>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="facebook">Facebook</label>
+                                    <input id="facebook" name="facebook" class="form-control"
+                                        value="{{ $content->facebook }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="twitter">Twitter</label>
+                                    <input id="twitter" name="twitter" class="form-control"
+                                        value="{{ $content->twitter }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="linkedin">Linkedin</label>
+                                    <input id="linkedin" name="linkedin" class="form-control"
+                                        value="{{ $content->linkedin }}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="youtube">Youtube</label>
+                                    <input id="youtube" name="youtube" class="form-control"
+                                        value="{{ $content->youtube }}">
+                                </div>
+                                <button type="submit" class="btn btn-block btn-outline-info btn-flat">Update</button>
+                            </form>
                         </div>
                         <!-- /.card-body -->
                     </div>

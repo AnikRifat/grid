@@ -47,18 +47,19 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-12">
-                        <div class="single-service-box-item box1">
-                            <div class="icon">
-                                <img src="{{ asset('/') }}assets/front/img/icon/web.png" alt="">
-                            </div>
-                            <h4>Web Developemnet</h4>
-                            <p>Lorem Ipsum is simply dummy text of the
-                                printing and typesetting industry. Lorem
-                                has been the industry's standard .</p>
+                    @foreach ($services as $service)
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-12">
+                            <div class="single-service-box-item box1">
+                                <div class="icon">
+                                    <img src="{{ asset('/') }}images/{{ $service->image }}" alt="">
+                                </div>
+                                <h4>{{ $service->title }}</h4>
+                                <p>{{ $service->detail }}</p>
 
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
+
 
                 </div>
             </div>
@@ -133,10 +134,7 @@
                             <h1>{{ $content->about_title }}</h1>
                             <p>{{ $content->about }}</p>
                         </div>
-                        <div class="signature-img mb-50">
-                            <img src="{{ asset('/') }}assets/front/img/signature.png" alt="">
-                        </div>
-                        <a href="#" class="theme-btn">Learn More</a>
+
                     </div>
                 </div>
             </div>

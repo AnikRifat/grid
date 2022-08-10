@@ -66,6 +66,29 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tree"></i>
                         <p>
+                            Service Management
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ url('admin/services/create') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Service</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('admin/services/view_services') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>View Services</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-tree"></i>
+                        <p>
                             Website Settings
                             <i class="fas fa-angle-left right"></i>
                         </p>

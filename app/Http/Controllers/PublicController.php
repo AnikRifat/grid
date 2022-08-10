@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Website;
 use App\Models\Blog;
+use App\Models\Services;
 use Illuminate\Http\Request;
 
 class PublicController extends Controller
@@ -16,8 +17,11 @@ class PublicController extends Controller
     public function index()
     {
         $blogs = Blog::latest()->paginate(4);
+        $services = Services::all();
+        
         return view('front.pages.home', [
             'blogs' => $blogs,
+            'services' => $services,
             'content' => $this->content
         ]);
     }

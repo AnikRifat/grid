@@ -70,28 +70,31 @@ class WebsiteController extends Controller
     public function update(Request $request, Website $content)
     {
         $request->validate([
-            'inputSlogan' => 'required',
-            'inputAbout' => 'required',
-            'inputPhone' => 'required',
-            'inputAddress' => 'required',
-            'inputFacebook' => 'required',
-            'inputTwitter' => 'required',
-            'inputLinkedin' => 'required',
-            'inputYoutube' => 'required',
+            'slogan' => 'required',
+            'about' => 'required',
+            'massage' => 'required',
+            'phone' => 'required',
+            'email' => 'required',
+            'address' => 'required',
+            'facebook' => 'required',
+            'twitter' => 'required',
+            'linkedin' => 'required',
+            'youtube' => 'required',
         ]);
 
         $input = $request->all();
-        if ($image = $request->file('image')) {
+        if ($image = $request->file('logo')) {
             $filePath = 'images/';
             $setImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($filePath, $setImage);
-            $input['image'] = $setImage;
+            $input['logo'] = $setImage;
         } else {
-            unset($input['image']);
+            unset($input['logo']);
         }
         $content->update($input);
+        // dd($content->update($input));
 
-        return redirect()->route('index')->with('success', 'Settings updated Scueesfully.');
+        return redirect()->route('contentIndex')->with('success', 'Settings updated Successfully.');
     }
 
 
