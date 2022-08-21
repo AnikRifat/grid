@@ -10,9 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ $content->name }}</title>
 
-    <link rel="shortcut icon" href="{{ asset('/') }}assets/front/img/favicon.png">
+    <link rel="shortcut icon" href="{{ asset('/') }}images/{{ $content->favicon }}">
 
 
     <link rel="stylesheet" href="{{ asset('/') }}assets/front/css/fontawesome.min.css">

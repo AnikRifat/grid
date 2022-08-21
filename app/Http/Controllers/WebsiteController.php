@@ -70,6 +70,7 @@ class WebsiteController extends Controller
     public function update(Request $request, Website $content)
     {
         $request->validate([
+            'name' => 'required',
             'slogan' => 'required',
             'about' => 'required',
             'massage' => 'required',
@@ -90,6 +91,14 @@ class WebsiteController extends Controller
             $input['logo'] = $setImage;
         } else {
             unset($input['logo']);
+        }
+        if ($image = $request->file('favicon')) {
+            $filePath = 'images/';
+            $setImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($filePath, $setImage);
+            $input['favicon'] = $setImage;
+        } else {
+            unset($input['favicon']);
         }
         $content->update($input);
         // dd($content->update($input));

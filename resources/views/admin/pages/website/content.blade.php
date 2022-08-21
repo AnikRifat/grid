@@ -29,6 +29,13 @@
 
                                 @method('put')
                                 <div class="form-group">
+                                    <label for="name">name</label>
+                                    <input id="name" name="name" class="form-control" type="text"
+                                        value="{{ $content->name }}">
+
+
+                                </div>
+                                <div class="form-group">
                                     <label for="slogan">Slogan</label>
                                     <textarea id="slogan" name="slogan" class="form-control" rows="2" value="">
                                 {{ $content->slogan }}
@@ -54,7 +61,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input id="email" type="email" name="email" class="form-control" value="{{ $content->email }}">
+                                    <input id="email" type="email" name="email" class="form-control"
+                                        value="{{ $content->email }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="address">Address</label>
@@ -68,7 +76,15 @@
                                         <input type="file" class="custom-file-input" name="logo" id="logo">
                                         <label class="custom-file-label" for="logo">Choose file</label>
                                     </div>
-
+                                </div>
+                                <div class="form-group">
+                                    <label>Logo</label>
+                                    <img src="{{ asset('/') }}images/{{ $content->favicon }}" height="100"
+                                        width="100" alt="">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" name="favicon" id="favicon">
+                                        <label class="custom-file-label" for="favicon">Choose file</label>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="facebook">Facebook</label>

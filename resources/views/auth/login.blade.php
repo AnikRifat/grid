@@ -1,6 +1,57 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app') --}}
 
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iofrm</title>
+    <link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/auth/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/auth/css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/auth/css/iofrm-style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/') }}assets/auth/css/iofrm-theme14.css">
+</head>
+
+<body>
+    <div class="form-body">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <div class="website-logo-inside">
+                            <a href="index.html">
+                                <div class="logo">
+                                    <img class="logo-size" src="{{ asset('/') }}images/{{ $content->logo }}"
+                                        alt="">
+                                </div>
+                            </a>
+                        </div>
+
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <input class="form-control" type="text" name="email" placeholder="E-mail Address"
+                                required>
+                            <input class="form-control" type="password" name="password" placeholder="Password" required>
+                            <div class="form-button">
+                                <button id="submit" type="submit" class="ibtn">Login</button> <a
+                                    href="forget14.html">Forget password?</a>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ asset('/') }}assets/auth/js/jquery.min.js"></script>
+    <script src="{{ asset('/') }}assets/auth/js/popper.min.js"></script>
+    <script src="{{ asset('/') }}assets/auth/js/bootstrap.min.js"></script>
+    <script src="{{ asset('/') }}assets/auth/js/main.js"></script>
+</body>
+
+</html>
+{{-- @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -70,4 +121,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}
